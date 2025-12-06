@@ -11,10 +11,13 @@ function count_fresh_ids(ranges::Array{Range})
   counter
 end
 
+# Loops through all ranges, combining them one by one if they overlap.
+# For every range it checks all subsequent ranges and removes them if they overlap, updating the top bound
 function combine_ranges(sorted_ranges::Array{Range})
   i = 1
   while i <= length(sorted_ranges)
     lrange = sorted_ranges[i]
+    # start inner loop from next range, since all before that are already checked by previous loops
     j = i + 1
     while j <= length(sorted_ranges)
       rrange = sorted_ranges[j]
