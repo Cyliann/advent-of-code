@@ -43,7 +43,7 @@ function main()
   source = CartesianIndex(1, len ÷ 2 + 1)
 
   checked = Set()
-  splits = shoot_beam(source, diagram, checked) # off by 1, start is also counted as split, so we have to subtract one
+  splits = shoot_beam(source, diagram, checked)
   println(splits)
 end
 main()
